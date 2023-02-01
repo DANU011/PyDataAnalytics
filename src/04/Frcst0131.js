@@ -60,7 +60,7 @@ const Frcst = () => {
 
         setInfo(infoArray);
     }
-    return (
+    return ( 
         <>
             <div className="header">
                 <h1>미세먼지예보</h1>

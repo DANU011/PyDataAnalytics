@@ -6,6 +6,6 @@ const App = () => {
   return (
     <Frcst />
   );
-}
+} 
 
 export default Frcst;
