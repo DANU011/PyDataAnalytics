@@ -3,7 +3,7 @@ import './Frcst.css';
 import Frcheader from './Frcheader'
 import Frcdt from './Frcdt'
 import Frccn from './Frccn'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'; 
 
 
 const Frcst = () => {

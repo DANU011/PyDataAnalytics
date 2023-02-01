@@ -20,5 +20,5 @@ const Frcdt = ({dt, setDt}) => {
              {dtdiv1Tag}
           </div>
      );
-}
+} 
 export default Frcdt;

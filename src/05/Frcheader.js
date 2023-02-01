@@ -5,4 +5,4 @@ const Frcheader = () => {
           </div>
      );
 }
-export default Frcheader;
+export default Frcheader; 

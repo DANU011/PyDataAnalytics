@@ -20,5 +20,5 @@ const Frccn = ({ cn }) => {
                </div>
           </div>
      );
-}
+} 
 export default Frccn;
