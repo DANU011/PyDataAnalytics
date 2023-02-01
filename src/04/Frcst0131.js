@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import './Frcst.css';
+import './Frcst0131.css';
 import { useState } from 'react';//리액트 훅
 const Frcst = () => {
     /* 공공데이터포털 : 한국환경공단_에어코리아_대기오염정보
@@ -40,8 +40,21 @@ const Frcst = () => {
             case 2: infoArray = item.frcstTwoCn.split(','); break;
             case 3: infoArray = item.frcstThreeCn.split(','); break;
             case 4: infoArray = item.frcstFourCn.split(','); break;
+
         }
-        infoArray = infoArray.map((v) => <li>{v}</li>);
+
+        infoArray = infoArray.map((v) => 
+            <li key={v+'-'+seldt}>
+                <span>{v.split(':')[0]}</span>(
+                {
+                v.includes('높음') ?
+                <span className='lired'>{v.split(':')[1]}</span>:
+                <span >{v.split(':')[1]}</span> //삼항연산
+                }
+                )
+
+            </li>
+                ); //ex) key='서울:낮음"-1
 
         console.log(infoArray);
 

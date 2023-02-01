@@ -1,8 +1,15 @@
 /* eslint-disable default-case */
 import './Frcst.css';
-import { useState } from 'react';//리액트 훅
+import Frcheader from './Frcheader'
+import Frcdt from './Frcdt'
+import Frccn from './Frccn'
+import { useState, useEffect } from 'react';
+
+
 const Frcst = () => {
     /* 공공데이터포털 : 한국환경공단_에어코리아_대기오염정보
+    
+
     frcstOneCn : 첫째날예보
     frcstTwoCn : 둘째날예보
     frcstThreeCn : 셋째날예보
@@ -13,7 +20,7 @@ const Frcst = () => {
     frcstThreeDt : 셋째날예보일시
     frcstFourDt : 넷째날예보일시
     */
-    const [info, setInfo] = useState();//[변수명 아무거나, set(첫글자대문자)변수명 아무거나]
+
     const items = [
         {
             "frcstFourDt": "2023-02-05",
@@ -28,60 +35,39 @@ const Frcst = () => {
             "presnatnDt": "2023-01-30"
         }
     ]
-    let item = items[0];
-    console.log(items[0])
+    let frcdt = ["frcstOneDt", "frcstTwoDt", "frcstThreeDt", "frcstFourDt"] ;
+    let frccn = ["frcstOneCn", "frcstTwoCn", "frcstThreeCn", "frcstFourCn"] ;
 
-    const showInfo = (seldt) => {
-        let infoArray = [];
+    //예보일자별 배열 추출
+    frcdt = frcdt.map((k) => items[0][k]) ;
+    frccn = frccn.map((k) => items[0][k]) ;
+    //console.log("frcdt", frcdt) ;
+    //console.log("frccn", frccn) ;
 
-
-        switch (seldt) {
-            case 1: infoArray = item.frcstOneCn.split(','); break;
-            case 2: infoArray = item.frcstTwoCn.split(','); break;
-            case 3: infoArray = item.frcstThreeCn.split(','); break;
-            case 4: infoArray = item.frcstFourCn.split(','); break;
-
-        }
-
-        infoArray = infoArray.map((v) => 
-            <li key={v+'-'+seldt}>
-                <span>{v.split(':')[0]}</span>(
-                {
-                v.includes('높음') ?
-                <span className='lired'>{v.split(':')[1]}</span>:
-                <span >{v.split(':')[1]}</span> //삼항연산
-                }
-                )
-
-            </li>
-                ); //ex) key='서울:낮음"-1
-
-        console.log(infoArray);
-
-        setInfo(infoArray);
+    //일자별 예보 오브젝트 생성
+    let frcobj = {} ;
+    for (let [idx, k] of frcdt.entries()) {
+        console.log('idx=', idx, 'value=', k, 'cnvalue=', frccn[idx]) ;
+        frcobj[k] = frccn[idx];
     }
+    //console.log("frcobj", frcobj) ;
+    let [cn, setCn] = useState(frcobj["2023-02-02"]) ;
+    let [dt, setDt] = useState() ;
+
+    useEffect(()=>{
+        frcobj[dt] && setCn(frcobj[dt]) ;
+    }, [dt]) ;
+
     return (
         <>
-            <div className="header">
-                <h1>미세먼지예보</h1>
-            </div>
+            <Frcheader />
             <div className="main">
-                <div className="mainbox1">
-                    <div className='dtdiv1' onClick={() => showInfo(1)}>{item.frcstOneDt} </div>
-                    <div className='dtdiv1' onClick={() => showInfo(2)}>{item.frcstTwoDt}</div>
-                    <div className='dtdiv1' onClick={() => showInfo(3)}>{item.frcstThreeDt}</div>
-                    <div className='dtdiv1' onClick={() => showInfo(4)}>{item.frcstFourDt}</div>
-                </div>
-                <div className="mainbox2">
-                    <div className='detail'>
-                        <ul>
-                            {info}
-                        </ul>
-                    </div>
-                </div>
+                <Frcdt dt={frcdt} setDt={setDt} />
+                <Frccn cn={cn} />
             </div>
         </>
-    );
+    ) ;
 }
+
 
 export default Frcst;
