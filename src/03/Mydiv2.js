@@ -1,6 +1,7 @@
 import Mydiv21 from "./Mydiv21";
 
 const Mydiv2 = (probs) => {
+     console.log("div2",probs);
      const user=probs.user;
      return(
           <div className="mydiv2">

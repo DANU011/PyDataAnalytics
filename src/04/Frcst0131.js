@@ -39,7 +39,7 @@ const Frcst = () => {
             case 1: infoArray = item.frcstOneCn.split(','); break;
             case 2: infoArray = item.frcstTwoCn.split(','); break;
             case 3: infoArray = item.frcstThreeCn.split(','); break;
-            case 4: infoArray = item.frcstFourCn.split(','); break;
+            case 4: infoArray = item.frcstFourCn.split(','); break;//문자열 쪼갬 > 배열
 
         }
 

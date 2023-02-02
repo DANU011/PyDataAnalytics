@@ -2,9 +2,7 @@ const Frcdt = ({dt, setDt}) => {
      let dtdiv1Tag = [...dt];
      console.log("setDt", setDt);
      
-     //
-
-
+     
      const show= (v)=>{
           console.log(v);
           setDt(v);

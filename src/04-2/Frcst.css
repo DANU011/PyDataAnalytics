@@ -80,5 +80,5 @@
  
  .lired {
      color: brown;
-     animation: blink-effect 1s step-end infinite;
+     animation: blink-effect 1.2s step-end infinite;
  }

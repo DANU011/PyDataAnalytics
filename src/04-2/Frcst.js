@@ -36,7 +36,7 @@ const Frcst = () => {
         }
     ]
     let frcdt = ["frcstOneDt", "frcstTwoDt", "frcstThreeDt", "frcstFourDt"] ;
-    let frccn = ["frcstOneCn", "frcstTwoCn", "frcstThreeCn", "frcstFourCn"] ;
+    let frccn = ["frcstOneCn", "frcstTwoCn", "frcstThreeCn", "frcstFourCn"] ;//순서때문에 배열 사용
 
     //예보일자별 배열 추출
     frcdt = frcdt.map((k) => items[0][k]) ;
@@ -44,29 +44,31 @@ const Frcst = () => {
     //console.log("frcdt", frcdt) ;
     //console.log("frccn", frccn) ;
 
-    //일자별 예보 오브젝트 생성
+    //일자별 예보 오브젝트 생성-날짜와 날씨 매칭
     let frcobj = {} ;
     for (let [idx, k] of frcdt.entries()) {
-        console.log('idx=', idx, 'value=', k, 'cnvalue=', frccn[idx]) ;
+        //console.log('idx=', idx, 'value=', k, 'cnvalue=', frccn[idx]) ;
         frcobj[k] = frccn[idx];
     }
     //console.log("frcobj", frcobj) ;
     let [cn, setCn] = useState(frcobj["2023-02-02"]) ;
-    let [dt, setDt] = useState() ;
+    let [dt, setDt] = useState() ;//**1)초기값x
 
     useEffect(()=>{
         frcobj[dt] && setCn(frcobj[dt]) ;
-    }, [dt]) ;
+    }, [dt]) ;//**2)언디파인드 //dt가 바뀌었을때 cn도 변경
 
     return (
         <>
             <Frcheader />
             <div className="main">
-                <Frcdt dt={frcdt} setDt={setDt} />
-                <Frccn cn={cn} />
+                <Frcdt dt={frcdt} setDt={setDt} />/
+                {dt && <Frccn dt={dt} cn={cn} />}
             </div>
         </>
-    ) ;
+        
+    ) ; //setDt={setDt}부모의 dt값을 변경할 수 있도록 probs값도 줌.
+    //{dt && <Frccn dt={dt} cn={cn} />}이렇게 안하려면 cn을 처리해서 넘겨야함.
 }
 
 

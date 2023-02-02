@@ -1,7 +1,8 @@
 import Mydiv11 from "./Mydiv11";
 import { useState } from "react";
-const Mydiv1 = (probs) =>{
-     const user=probs.user;
+const Mydiv1 = ({rname}) =>{
+     console.log("div1",rname);
+     const user=rname;
      let [cnt, setCnt] = useState(0);
      
      const addCnt =()=>{
