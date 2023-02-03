@@ -1,11 +1,14 @@
 import './App.css';
-import Frcst from './04-2/Frcst';
+//import Frcst from './04-2/Frcst';
+//import Taccident from './05/Taccident';
+//import Taccidentcopy from './05/Taccidentcopy';
+import Taccidenthw from './05/Taccidenthw';
 
 const App = () => {
-  console.log('Frcst.js');
+  console.log('Taccidenthw.js');
   return (
-    <Frcst />
+    <Taccidenthw />
   );
 } 
 
-export default Frcst;
+export default App;
