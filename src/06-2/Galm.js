@@ -7,7 +7,7 @@ const Galm = ({galt, datas}) => {
   let [selcard, setSelcard] = useState([]);
   
   useEffect (() => {
-    if (selTitle) {
+    if (selgalt) {
       setSelcard(datas.filter((i) => i["galTitle"] === selgalt)[0])
     }
   }, [selgalt]);
