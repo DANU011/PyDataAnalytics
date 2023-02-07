@@ -32,9 +32,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 #### React Project_4-2 : 미세먼지예보 (컴포넌트 쪼개기, useState, useEffect△ ) v5.0 
 #### React Project_3-2, React Project_4-2 : 컴포넌트 예제 (probs, useState, useEffect) v6.0
 #### React Project_5 : 교통사고 유형별 사고현황 (obj,array) v7.0
-#### React Project_6, React Project_6-2 : Gal v7.5, v8.0
-
+#### React Project_6, React Project_6-2 : Gal 실습 예제 v7.5, v8.0 
  + https://gal-bs.web.app
- 
+#### React Project_7 : Mycom (useRef, useState 비교) v9.0
 
  
