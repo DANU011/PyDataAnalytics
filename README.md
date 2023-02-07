@@ -34,3 +34,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 #### React Project_5 : 교통사고 유형별 사고현황 (obj,array) v7.0
 #### React Project_6 : Gal v8.0
  + https://galfinal-a2442.web.app
+ + https://galfinal-1195a.web.app
