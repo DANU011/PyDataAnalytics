@@ -3,7 +3,7 @@ import './App.css';
 //import Taccident from './05/Taccident';
 //import Taccidentcopy from './05/Taccidentcopy';
 //import Taccidenthw from './05/Taccidenthw';
-import Gal from './06/Gal';
+import Gal from './06-2/Gal';
 
 const App = () => {
   console.log('Gal.js');
