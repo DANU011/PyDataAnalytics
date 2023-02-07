@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .galm {
      display: flex;
      flex-direction: row;
@@ -60,67 +59,3 @@
      color: white;
      font-size: 1em;
    }
-=======
-.galm {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* width: 100vw;
-    height: 100vh; */
-  }
-  
-  .galc1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 550px;
-    height: 90vh;
-  }
-  .galcard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    border: 1px solid;
-    border-radius: 10px;
-    width: 550px;
-    height: 80vh;
-    background-color: navy;
-  }
-  .galtTag, .galtTagSel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: auto;
-    border: 1px solid;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 20px;
-  }
-  .galtTag:hover, .galtTag:active, .galtTagSel {
-    background-color: lightgray;
-    color: white;
-  }
-  .img {
-    width: 100%;
-    height: 40%;
-  }
-  .galTitle {
-    padding: 10px 20px 0px 20px;
-    color: gray;
-    font-size: 2.3em;
-  }
-  .galPhotographyLocation, .galPhotographer {
-    padding: 0px 20px 0px 20px;
-    color: yellow; 
-    font-size: 1.5em;
-  }
-  .galPhotographyMonth, .galSearchKeyword {
-    padding: 0px 20px 0px 20px;
-    color: white;
-    font-size: 1em;
-  }
->>>>>>> bf697539c13bd53bf43c49443e866f36c15f0412
