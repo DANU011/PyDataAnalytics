@@ -6,7 +6,7 @@ const Galcard = ({ selcard }) => {
     selcardTag.push(<img src={selcard["galWebImageUrl"]} className="img" key="img"></img>);
     selcardTag.push(keys.map((item) =>
       <div className={item} key={item}>
-        {item.includes("galPhotographyMonth") ? parseInt(selcard[item] / 100) + "." + ((selContent[item] % 100 < 10) ? "0" + selcard[item] % 100 : selcard[item] % 100) : selcard[item]}
+        {item.includes("galPhotographyMonth") ? parseInt(selcard[item] / 100) + "." + ((selcard[item] % 100 < 10) ? "0" + selcard[item] % 100 : selcard[item] % 100) : selcard[item]}
       </div>));
   }
 
