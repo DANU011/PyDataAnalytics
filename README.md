@@ -35,5 +35,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 #### React Project_6, React Project_6-2 : Gal v7.5, v8.0
  + 클릭유지 : https://galfinal-1195a.web.app
  + css 수정 : https://gal-bs.web.app
- + 버튼v(클릭유지x) : https://galfinal-a2442.web.app
+ https://galfinal-a2442.web.app
  
