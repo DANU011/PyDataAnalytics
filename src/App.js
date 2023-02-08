@@ -4,12 +4,13 @@ import './App.css';
 //import Taccidentcopy from './05/Taccidentcopy';
 //import Taccidenthw from './05/Taccidenthw';
 //import Gal from './06-2/Gal';
-import Mycom from './07/Mycom';
+//import Mycom from './07/Mycom';
+import Myform from './08/Myform';
 
 const App = () => {
-  console.log('Mycom.js');
+  console.log('Myform.js');
   return (
-    <Mycom />
+    <Myform />
   );
 } 
 
