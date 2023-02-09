@@ -59,8 +59,8 @@
  }
  
  .concard {
-     width: 80%;
-     height: 80%;
+     width: 500px;
+     height: 500px;
      display: flex;
      flex-direction: column;
      justify-content: center;
@@ -74,7 +74,7 @@
  }
  
  .concard > div {
-     width: 80%;
+     width: 400px;
      font-size: 1.2em;
  } 
  
@@ -83,7 +83,7 @@
      color: aliceblue;
  }
  .concard img {
-     width : 100%;
+     width : 400px;
      height: 200px;
  }
 
@@ -100,3 +100,11 @@
      border-radius: 10px;
      margin: 3px;
 }
+
+input[type=text], input[type=password], select {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
