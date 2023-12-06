@@ -1,0 +1,86 @@
+머신러닝 분류 문제에서 종속 변수에 대하여 시각화를 하는 이유
+
+1. 데이터 분포 확인 : 종속 변수의 분포를 시각적으로 확인하면 데이터셋 내 라벨이 어떻게 분포되어 있는지 알 수 있다. 이를 통해 클래스 간 불균형이 있는지 파악할 수 잏다.
+2. 클래스 불균형 문제 : 클래스 불균형은 한 클래스의 샘플 수가 다른 클래스보다 훨씬 많은 경우 발생한다. 이 경우, 분류 알고리즘이 소수 클래스를 제대로 예측하지 못할 수 있어 문제가 있다. 시각화를 통해 클래스 불균형 문제를 발견하면, 오버샘플링 또는 언더샘플링 등의 리샘플링 기법을 적용하여 문제를 해결할 수 있다.
+
+
+범주형 변수 시각화
+
+범주형 피처에 countplot과 barplot를 사용하여 피처 각 범주의 전체 빈도와 생존률을 동시에 시각화 한다.
+시각화를 하는 이유와 얻을 수 있는 인사이트는 다음과 같다.
+
+1. 특성 별 분포 확인 : 각 범주형 변수의 값별 빈도를 확인하여 데이터 내부 구조를 이해학 위한 정보를 제공한다. 이는 전체적인 분포를 파악하거나 값별 차이를 확인하는데 도움이 된다.
+
+2. 생존률 이해 : 종속 변수와 각 독립 변수간에 생존률 차이를 보여주는 막대 그래프를 사용하면 변수가 생존률에 어떤 영향을 미치는지 파악할 수 있다. 예를 들어, 성별이 생존률과 관련이 있는지 분석 할 수 있다.
+
+3. 임베딩 및 인코딩 : 범주형 변수에 대한 처리를 결종하는 데 도움이 된다. 시각화를 통해 다양한 값 간에 차이를 확인할 수 있고, One-Hot Encoding이나 Ordinal Encoding 등을 사용하여 범주형 변수를 수치형으로 변환할 방법을 계획할 수 있다.
+
+4. 피처 엔지니어링 : 시각화를 통해 파생 변수 생성이나 기존 변수 변환의 필요성을 인지하게 된다. 예를 들어, 'Embarked'의 서로 다른 도시에서 출발한 승객들의 생존률이 다를 경우 해당 변수를 추가로 사용하거나 변형하여 모델 성능을 개선 할 수 있다.
+
+
+수치형 변수 시각화
+
+시각화할 수치형 변수를 선택해 리스트에 넣어 준다. 그리고 for문을 이용해 수치형 변수들의 boxplot을 만들고 데이터를 확인 한다.
+
+수치형 독립 수인 Age, SibSp, Parch, Fare과 관련된 시각화를 생성한다. 각 변수에 대해 별도의 도표를 생성하며, 세로 막대 그래프를 사용하여 각 변수의 값 분포와 산포 범위를 보여준다. 
+
+수치형 독립 변수 시각화의 목적과 얻을 수 있는 인사이트는 다음과 같다.
+
+1. 분포 확인 : 각 수치형 변수의 값 분포를 시각적으로 확인하여 이상치, 왜도, 중앙값 등 데이터의 중요한 특성에 대한 정보를 제공한다. 이를 통해 데이터 전처리와 피처 엔지니어링을 계획할 수 있다.
+2. 이상치 탐지 : 상자 그림을 사용하여 최솟값, 최댓값, 사분위수 범위를 확인하고, 이상치를 쉽게 확인할 수 있다. 이상치가 있을 경우 이를 처리하기 위한 차우 작업을 계획할 수 있다.
+3. 생존에 미치는 영향 : 각 독립 변수에 대한 생존률과 비생존률의 차이를 나타내는 상자 그림을 사용하여 각 변수들이 생존률에 어떤 영향을 미치는지 확인할 수 있다. 이를 통해 모델 성능 개서넹 도움이 되는 변수 생성이나 변화를 계획할 수 있다.
+
+
+train_x = train.drop(columns='Survived')
+train_y = train['Survived']
+
+from sklearn.model_selection import train_test_split
+train_x, val_x, train_y, val_y  = train_test_split(train_x, train_y, test_size=0.2, random_state=0)
+
+import statsmodels.api as sm
+
+train_dataset = train_x.copy()
+train_dataset['Survived'] = train_y
+
+formula = """
+Survived ~ C(Pclass)+ C(Sex) + scale(Age) + scale(SibSp) + scale(Parch) + scale(Fare) + C(Embarked)
+"""
+model = sm.Logit.from_formula(formula, data=train_dataset)  
+result = model.fit()  
+
+print(result.summary())
+
+# ================================================================
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.preprocessing import StandardScaler, OneHotEncoder
+# from sklearn.compose import ColumnTransformer
+# from sklearn.pipeline import Pipeline
+
+# # 범주형 변수와 연속형 변수를 나눕니다.
+# cat_vars = ['Pclass', 'Sex', 'Embarked']
+# num_vars = ['Age', 'SibSp', 'Parch', 'Fare']
+
+# # 범주형 변수는 원-핫 인코딩을, 연속형 변수는 표준화를 적용합니다.
+# preprocessor = ColumnTransformer(
+#     transformers=[
+#         ('num', StandardScaler(), num_vars),
+#         ('cat', OneHotEncoder(), cat_vars)])
+
+# # 전처리 단계와 로지스틱 회귀 모델을 파이프라인으로 연결합니다.
+# clf = Pipeline(steps=[('preprocessor', preprocessor),
+#                       ('classifier', LogisticRegression())])
+
+# # 학습 데이터에 모델을 학습시킵니다.
+# clf.fit(train_x, train_y)
+
+C()는 해당 변수를 categorical 변수로 인식하도록 변환해주는 역할을 한다. 따라서 C(Pclass)는 Pclass 변수를 카테고리 변수로 처리하겠다는 의미이다. 마찬가지로 C(Sex)와 C(Embarked)도 해당 변수를 카테고리 변수로 처리하는 역할을 한다. 
+
+scale()은 수치형 변수를 표준화하기 위해 사용되는 함수이다.
+scale()은 해당 변수의 평균을 0으로, 표준편차를 1로 만들어주는 표준화 작업을 수행한다.
+따라서 scale(Age), scale(SibSp), scale(Parch), scale(Fare)는 각각의 변수를 표준화하여 모델에 사용하겠다는 의미이다.
+
+결과 해석
+'Parch', 'Fare' 피처에서 이상치로 판단한 데이터를 제거하고, 7개의 피처(Pclass, Sex, Age, SibSp, Parch, Fare, Embarked)에 대한 학습모델 (모델A)이 4의 피처(Age, SibSp, Parch, Fare, Embarked)에 대한 학습모델 (모델B)보다 개선 되었음을 다음을 통해 해석할 수 있다.
+
+Pseudo R-squared (모델A 0.3795, 모델B 0.07342) : 모델A는 모델B보다 높은 값을 가지므로 더 높은 데이터 적합도를 보인다.
+LLR p-value (모델A 9.740e-71, 모델B 2.760e-14) : 모델A의 값이 모델B보다 더 작은 값이기 때문에, 모델A가 통계적으로 더 유의미한 모델이다. 
