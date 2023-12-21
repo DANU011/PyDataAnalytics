@@ -298,3 +298,4 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/git
+StoreCreditCardRevenue/data/funda_train.csv
