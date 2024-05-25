@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="68712741-76bb-488d-96f4-914262c14724" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HuggingFace Library - SwinTransformer V2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/HuggingFace Library - SwinTransformer V2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,9 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2gm1n7m3ARl9fcuL8xIs9kkNF16" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,6 +27,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -47,6 +48,8 @@
       <updated>1716288105500</updated>
       <workItem from="1716288105746" duration="1000" />
       <workItem from="1716288244967" duration="33000" />
+      <workItem from="1716329995751" duration="1000" />
+      <workItem from="1716425617563" duration="236000" />
     </task>
     <servers />
   </component>
